@@ -1,13 +1,11 @@
 package com.flagg.msu.criminalintent
 
-import androidx.test.espresso.action.ViewActions.click // Chat GPT
-import androidx.test.espresso.action.ViewActions.typeText // Chat GPT
-import androidx.test.espresso.matcher.ViewMatchers.isChecked // Chat GPT
-import androidx.fragment.app.testing.launchFragmentInContainer // Chat GPT
 import androidx.fragment.app.testing.FragmentScenario
-import androidx.test.core.app.ActivityScenario.launch
-import androidx.test.espresso.Espresso.OnView
-import androidx. test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -26,6 +24,10 @@ class CrimeDetailFragmentTest {
         scenario = launch(CrimeDetailFragment::class.java)
     }
 
+    private fun launch(java: Class<CrimeDetailFragment>): FragmentScenario<CrimeDetailFragment> {
+        TODO("Not yet implemented")
+    }
+
     @After
     fun tearDown() {
         scenario.close()
@@ -41,3 +43,4 @@ class CrimeDetailFragmentTest {
         onView(withId(R.id.crime_title)).check(matches(withText(newTitle)))
         onView(withId(R.id.crime_solved)).check(matches(isChecked()))
     }
+}
